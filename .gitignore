@@ -6,6 +6,7 @@
 *.eps
 *.swp
 *.pdf
+rs4a.egg-info
 stdout.txt
 misc/
 jobs/
