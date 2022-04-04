@@ -8,8 +8,8 @@ from argparse import ArgumentParser
 from collections import defaultdict
 from dfply import *
 from matplotlib import pyplot as plt
-from src.noises import *
-from src.datasets import get_dim
+from rs4a.src.noises import *
+from rs4a.src.datasets import get_dim
 
 
 if __name__ == "__main__":

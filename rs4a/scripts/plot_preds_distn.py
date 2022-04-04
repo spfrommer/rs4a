@@ -9,8 +9,8 @@ import seaborn as sns
 from argparse import ArgumentParser
 from dfply import *
 from matplotlib import pyplot as plt
-from src.noises import parse_noise_from_args
-from src.datasets import get_dim
+from rs4a.src.noises import parse_noise_from_args
+from rs4a.src.datasets import get_dim
 
 if __name__ == "__main__":
 

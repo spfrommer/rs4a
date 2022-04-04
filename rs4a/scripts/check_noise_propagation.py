@@ -10,10 +10,10 @@ from collections import defaultdict
 from torch.utils.data import DataLoader, Subset
 from matplotlib import pyplot as plt
 from tqdm import tqdm
-from src.attacks import *
-from src.noises import *
-from src.models import *
-from src.datasets import get_dataset
+from rs4a.src.attacks import *
+from rs4a.src.noises import *
+from rs4a.src.models import *
+from rs4a.src.datasets import get_dataset
 
 
 def get_final_layer_mlp(model, x):
