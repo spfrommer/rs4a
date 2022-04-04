@@ -3,10 +3,10 @@ import os
 from argparse import ArgumentParser
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from src.attacks import *
-from src.noises import *
-from src.models import *
-from src.datasets import get_dataset, get_num_labels
+from rs4a.src.attacks import *
+from rs4a.src.noises import *
+from rs4a.src.models import *
+from rs4a.src.datasets import get_dataset, get_num_labels
 
 
 if __name__ == "__main__":

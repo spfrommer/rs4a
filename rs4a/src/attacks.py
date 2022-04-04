@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.autograd import grad
-from src.smooth import *
+from rs4a.src.smooth import *
 
 
 def project_onto_ball(x, eps, p="inf"):

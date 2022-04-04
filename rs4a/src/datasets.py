@@ -2,9 +2,9 @@ import torch
 import random
 from torchvision import datasets, transforms
 from torch.utils.data import ConcatDataset
-from src.lib.zipdata import ZipData
-from src.lib.ds_imagenet import DSImageNet
-from src.lib.cifar10_selftrained import CIFAR10SelfTrained
+from rs4a.src.lib.zipdata import ZipData
+from rs4a.src.lib.ds_imagenet import DSImageNet
+from rs4a.src.lib.cifar10_selftrained import CIFAR10SelfTrained
 
 
 def get_dim(name):

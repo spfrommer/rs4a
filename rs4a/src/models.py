@@ -3,11 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.distributions import Normal, Categorical, Bernoulli
 from torchvision import models as base_models
-from src.datasets import *
-from src.lib.wide_resnet import WideResNet as WideResNetBase
-from src.lib.alexnet import AlexNet as AlexNetBase
-from src.lib.lenet import LeNet as LeNetBase
-from src.lib.classic_resnet import resnet110 as classic_resnet110
+from rs4a.src.datasets import *
+from rs4a.src.lib.wide_resnet import WideResNet as WideResNetBase
+from rs4a.src.lib.alexnet import AlexNet as AlexNetBase
+from rs4a.src.lib.lenet import LeNet as LeNetBase
+from rs4a.src.lib.classic_resnet import resnet110 as classic_resnet110
 
 
 class Forecaster(nn.Module):

@@ -8,11 +8,11 @@ from argparse import ArgumentParser
 from torchnet import meter
 from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm
-from src.models import *
-from src.attacks import *
-from src.smooth import *
-from src.noises import *
-from src.datasets import *
+from rs4a.src.models import *
+from rs4a.src.attacks import *
+from rs4a.src.smooth import *
+from rs4a.src.noises import *
+from rs4a.src.datasets import *
 
 
 if __name__ == "__main__":
