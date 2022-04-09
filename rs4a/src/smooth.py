@@ -13,7 +13,7 @@ def direct_train_log_lik(model, x, y, noise, sample_size=16):
     samples = x.unsqueeze(1).expand(samples_shape)
     samples = samples.reshape(torch.Size([-1]) + samples.shape[2:])
     samples = noise.sample(samples)
-    thetas = model.forward(samples).view(x.shape[0], sample_size, -1)
+    thetas = model(samples).view(x.shape[0], sample_size, -1)
     return torch.logsumexp(thetas[torch.arange(x.shape[0]), :, y] - \
                            torch.logsumexp(thetas, dim=2), dim=1) - \
            torch.log(torch.tensor(sample_size, dtype=torch.float, device=x.device))
@@ -35,7 +35,7 @@ def smooth_predict_soft(model, x, noise, sample_size=64, noise_batch_size=512):
         samples = x.unsqueeze(1).expand(shape)
         samples = samples.reshape(torch.Size([-1]) + samples.shape[2:])
         samples = noise.sample(samples.view(len(samples), -1)).view(samples.shape)
-        logits = model.forward(samples).view(shape[:2] + torch.Size([-1]))
+        logits = model(samples).view(shape[:2] + torch.Size([-1]))
         if counts is None:
             counts = torch.zeros(x.shape[0], logits.shape[-1], dtype=torch.float, device=x.device)
         counts += F.softmax(logits, dim=-1).mean(dim=1)
@@ -60,7 +60,7 @@ def smooth_predict_hard(model, x, noise, sample_size=64, noise_batch_size=512, r
         samples = x.unsqueeze(1).expand(shape)
         samples = samples.reshape(torch.Size([-1]) + samples.shape[2:])
         samples = noise.sample(samples.view(len(samples), -1)).view(samples.shape)
-        logits = model.forward(samples).view(shape[:2] + torch.Size([-1]))
+        logits = model(samples).view(shape[:2] + torch.Size([-1]))
         top_cats = torch.argmax(logits, dim=2)
         if counts is None:
             counts = torch.zeros(x.shape[0], logits.shape[-1], dtype=torch.float, device=x.device)
