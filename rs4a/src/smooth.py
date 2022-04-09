@@ -43,7 +43,7 @@ def smooth_predict_soft(model, x, noise, sample_size=64, noise_batch_size=512):
 
     return Categorical(probs=counts)
 
-def smooth_predict_hard(model, x, noise, sample_size=64, noise_batch_size=512):
+def smooth_predict_hard(model, x, noise, sample_size=64, noise_batch_size=512, raw_count=False):
     """
     Make hard predictions for a model smoothed by noise.
 
@@ -66,6 +66,9 @@ def smooth_predict_hard(model, x, noise, sample_size=64, noise_batch_size=512):
             counts = torch.zeros(x.shape[0], logits.shape[-1], dtype=torch.float, device=x.device)
         counts += F.one_hot(top_cats, logits.shape[-1]).float().sum(dim=1)
         num_samples_left -= noise_batch_size
+
+    if raw_count:
+        return counts.squeeze()
 
     return Categorical(probs=counts)
 
