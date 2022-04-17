@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-
+    
     model = eval(args.model)(dataset=args.dataset, device=args.device)
 
     # for fine-tuning a pre-trained model, we strip out the last fc layer

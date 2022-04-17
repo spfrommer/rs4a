@@ -35,6 +35,11 @@ class ResNet(Forecaster):
         super().__init__(dataset, device)
         if dataset == "imagenet":
             self.model = nn.DataParallel(base_models.resnet50(num_classes=1000))
+        elif dataset == "mnist":
+            resnet = base_models.resnet18(num_classes=10)
+            resnet.conv1 = torch.nn.Conv2d(
+                1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+            self.model = nn.DataParallel(resnet)
         else:
             self.model = nn.DataParallel(classic_resnet110())
         self.norm = nn.DataParallel(self.norm)
